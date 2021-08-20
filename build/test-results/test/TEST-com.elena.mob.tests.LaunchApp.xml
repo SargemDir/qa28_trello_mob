@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.elena.mob.tests.LaunchApp" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-20T09:00:28" hostname="DESKTOP-S1IE1UQ" time="0.002">
+  <properties/>
+  <testcase name="testLaunchApp" classname="com.elena.mob.tests.LaunchApp" time="0.002"/>
+  <system-out><![CDATA[12:00:28.981 [Test worker] INFO com.elena.mob.tests.TestBase - start test testLaunchApp with parameters []
+12:00:28.995 [Test worker] INFO com.elena.mob.tests.TestBase - app Trello is runned.
+12:00:29.021 [Test worker] INFO com.elena.mob.tests.TestBase - stop test testLaunchApp
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
