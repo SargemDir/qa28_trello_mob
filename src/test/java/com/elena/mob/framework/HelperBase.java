@@ -1,8 +1,8 @@
 package com.elena.mob.framework;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,53 +14,53 @@ import java.util.NoSuchElementException;
 
 
 public class HelperBase {
-    WebDriver wd;
+    AppiumDriver driver;
 
-    public HelperBase(WebDriver wd) {
-        this.wd = wd;
+    public HelperBase(AppiumDriver driver) {
+        this.driver = driver;
     }
 
     public void click(By locator) {
-        wd.findElement(locator).click();
+        driver.findElement(locator).click();
     }
     public void waitForElementAndClick(By locator, int time) {
-        new WebDriverWait(wd, time).until(ExpectedConditions.elementToBeClickable(locator)).click();
+        new WebDriverWait(driver, time).until(ExpectedConditions.elementToBeClickable(locator)).click();
        // wd.findElement(locator).click();
     }
 
     public void type(By locator, String text) {
         if(text!=null){
             click(locator);
-            wd.findElement(locator).clear();
-            wd.findElement(locator).sendKeys(text);
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(text);
         }
     }
 
     public void openTabAndSwitchToIt() throws InterruptedException {
-        ((JavascriptExecutor)wd).executeScript("window.open()");
+        ((JavascriptExecutor) driver).executeScript("window.open()");
 
-        List<String> tabs = new ArrayList<>(wd.getWindowHandles());
-        wd.switchTo().window(tabs.get(1));
-        wd.navigate().to("https://google.com");
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.navigate().to("https://google.com");
         Thread.sleep(10000);
     }
 
     public void attachFile(By locator, File file) {
        // if(file.!=null){
-            wd.findElement(locator).sendKeys(file.getAbsolutePath());
+            driver.findElement(locator).sendKeys(file.getAbsolutePath());
      //   }
     }
 
     public boolean isElementPresent(By locator) {
-        return wd.findElements(locator).size() > 0;
+        return driver.findElements(locator).size() > 0;
     }
 
     public boolean isElementDisplayed(By locator) {
-        return wd.findElement(locator).isDisplayed();
+        return driver.findElement(locator).isDisplayed();
     }
 
     public boolean waitForElementPresent(By locator, int timeOut) {
-        return new WebDriverWait(wd, timeOut)
+        return new WebDriverWait(driver, timeOut)
                 .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator)).size() > 0;
     }
 
@@ -75,7 +75,7 @@ public class HelperBase {
     }
 
     public void waitForElement(By locator, int timeOut) {
-        new WebDriverWait(wd, timeOut)
+        new WebDriverWait(driver, timeOut)
                 .until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -93,12 +93,12 @@ public class HelperBase {
     }
 
     public void selectFromDropDownByIndex(By locator, int index){
-        new Select(wd.findElement(locator)).selectByIndex(index);
+        new Select(driver.findElement(locator)).selectByIndex(index);
 
     }
 
     public void selectFromDropDownByText(By locator, String text){
-        new Select(wd.findElement(locator)).selectByVisibleText(text);
+        new Select(driver.findElement(locator)).selectByVisibleText(text);
     }
 
 }
