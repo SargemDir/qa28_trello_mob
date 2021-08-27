@@ -10,19 +10,22 @@ public class LoginPage extends  HelperBase{
 
     public void fillLoginForm() throws InterruptedException {
         type(By.id("user"), "rochman.elena@gmail.com");
-        Thread.sleep(5000);
-        if(isElementPresent(By.xpath("//*[@text='LOG IN']"))){
-            click(By.xpath("//*[@text='LOG IN']"));
-            Thread.sleep(5000);
-//            if(isElementPresent(By.id("button_once"))){
-                click(By.xpath("//*[@text='JUST ONCE']"));
-                Thread.sleep(7000);
-                click(By.xpath("//*[@content-desc='Continue']"));
+        waitForElementLocatedAndClick(By.xpath("//*[@text='LOG IN']"), 20);
+//        Thread.sleep(5000);
+//        if(isElementPresent(By.xpath("//*[@text='LOG IN']"))){
+//            click(By.xpath("//*[@text='LOG IN']"));
+//            Thread.sleep(5000);
+//            if(waitForElementPresent(By.id("button_once"), 30)){
+//                click(By.xpath("//*[@text='JUST ONCE']"));
+//            }
+               // Thread.sleep(7000);
+                waitForElementLocatedAndClick(By.xpath("//*[@content-desc='Continue']"), 60);
+        Thread.sleep(7000);
 
-
-        }
         type(By.id("password"), "12345.com");
     }
+
+
 
     public void confirmLogin() {
         click(By.id("authenticate"));

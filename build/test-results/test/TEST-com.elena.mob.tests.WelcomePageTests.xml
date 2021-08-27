@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.elena.mob.tests.WelcomePageTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-08-27T08:43:52" hostname="DESKTOP-S1IE1UQ" time="12.265">
+  <properties/>
+  <testcase name="swipeWelcomePageTest" classname="com.elena.mob.tests.WelcomePageTests" time="12.265"/>
+  <system-out><![CDATA[11:43:52 INFO  com.elena.mob.tests.TestBase - start test swipeWelcomePageTest with parameters []
+Hello Trello!
+Get organized
+Add details
+Team up
+11:44:04 INFO  com.elena.mob.tests.TestBase - stop test swipeWelcomePageTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
